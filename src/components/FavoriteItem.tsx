@@ -9,7 +9,7 @@ export function FavoriteItem({
   setFavorites,
 }: {
   favorite: MatchItem;
-  setFavorites: React.Dispatch<React.SetStateAction<MatchItem[]>>;
+  setFavorites: React.Dispatch<React.SetStateAction<MatchItem[] | null>>;
 }) {
   const removeFavorite = () => {
     const favorites: MatchItem[] = JSON.parse(
