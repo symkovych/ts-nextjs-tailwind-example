@@ -1,8 +1,4 @@
-# Next.js + Tailwind CSS + TypeScript Starter and Boilerplate
-
-[![GitHub Repo stars](https://img.shields.io/github/stars/theodorusclarence/ts-nextjs-tailwind-starter)](https://github.com/theodorusclarence/ts-nextjs-tailwind-starter/stargazers)
-[![Depfu](https://badges.depfu.com/badges/fc6e730632ab9dacaf7df478a08684a7/overview.svg)](https://depfu.com/github/theodorusclarence/ts-nextjs-tailwind-starter?project_id=30160)
-[![Last Update](https://img.shields.io/badge/deps%20update-every%20sunday-blue.svg)](https://shields.io/)
+# Next.js + TypeScript + use-query example
 
 ### 1. Install dependencies
 
@@ -22,7 +18,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `src/pages/index.tsx`.
 
-I used [![this](https://img.shields.io/github/stars/theodorusclarence/ts-nextjs-tailwind-starter)](https://github.com/theodorusclarence/ts-nextjs-tailwind-starter/stargazers) boilerplate my work starts from 'feat: init commit'
+I used [[this]](https://github.com/theodorusclarence/ts-nextjs-tailwind-starter) boilerplate, my work starts from 'feat: init' commit
 
 The boilerplate includes some tailwind config but I used mui own styling as it was the faster way
 
