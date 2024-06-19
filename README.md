@@ -21,3 +21,11 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `src/pages/index.tsx`.
+
+I used [![this](https://img.shields.io/github/stars/theodorusclarence/ts-nextjs-tailwind-starter)](https://github.com/theodorusclarence/ts-nextjs-tailwind-starter/stargazers) boilerplate my work starts from 'feat: init commit'
+
+The boilerplate includes some tailwind config but I used mui own styling as it was the faster way
+
+For caching I used react-query
+
+The alphavantage free plan is very limited if you have got issue about reaching the limit try to ask a new api key or use VPN
