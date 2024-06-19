@@ -4,11 +4,11 @@ import * as React from 'react';
 import '@/styles/colors.css';
 
 export const metadata: Metadata = {
-  title: 'Components',
-  description: 'Pre-built components with awesome default',
+  title: 'Stock details',
+  description: 'Stock details like name, market data',
 };
 
-export default function ComponentsLayout({
+export default function StockDetailsLayout({
   children,
 }: {
   children: React.ReactNode;
