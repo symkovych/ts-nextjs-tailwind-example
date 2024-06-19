@@ -25,8 +25,10 @@ export function FavoriteItem({
   return (
     <Card sx={{ p: 2 }}>
       <CardContent sx={{ p: 0 }}>
-        <Typography variant='h6'>{favorite['2. name']}</Typography>
-        <Typography>{favorite['1. symbol']}</Typography>
+        <Typography noWrap variant='h6'>
+          {favorite['2. name']}
+        </Typography>
+        <Typography noWrap>{favorite['1. symbol']}</Typography>
       </CardContent>
 
       <Button fullWidth onClick={removeFavorite}>

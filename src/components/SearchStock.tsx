@@ -59,6 +59,7 @@ export function SearchStock() {
       />
       {selectedStock && (
         <Link
+          className='underline'
           href={{
             pathname: `/stock/${selectedStock['2. name']}`,
           }}

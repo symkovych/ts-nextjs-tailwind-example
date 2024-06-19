@@ -16,7 +16,7 @@ export default function StockDetails() {
       <Head>
         <title>Stock details</title>
       </Head>
-      <Link href='/'>
+      <Link href='/' className='underline'>
         <Stack mt={2} gap={1} direction='row'>
           <ArrowBackIcon /> Back to search page
         </Stack>

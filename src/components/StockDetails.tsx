@@ -1,16 +1,23 @@
 'use client';
+import StarIcon from '@mui/icons-material/Star';
 import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import { Button, Divider, Stack, Typography } from '@mui/material';
 import { useParams } from 'next/navigation';
 import * as React from 'react';
 import '@/lib/env';
 
-import { useStocks } from '@/app/hooks/useStocks';
+import { MatchItem, useStocks } from '@/app/hooks/useStocks';
 import { favoritesKey } from '@/constant/config';
 
 export function StockDetailsData() {
   const { stockName } = useParams<{ stockName: string }>();
   const decodeStockName = decodeURIComponent(stockName);
+  const [favorites, setFavorites] = React.useState<MatchItem[]>([]);
+
+  React.useEffect(() => {
+    setFavorites(JSON.parse(localStorage.getItem(favoritesKey) ?? '[]'));
+  }, []);
+
   const { data } = useStocks(
     { keywords: decodeStockName },
     { enabled: !!decodeStockName, staleTime: 10 * 60 * 1000 }
@@ -20,21 +27,45 @@ export function StockDetailsData() {
   );
 
   const addFavorite = () => {
-    const favorites = JSON.parse(localStorage.getItem(favoritesKey) ?? '[]');
-    favorites.push(stock);
-    localStorage.setItem(favoritesKey, JSON.stringify(favorites));
+    if (stock) {
+      const updatedFavorite = [...favorites, stock];
+      localStorage.setItem(favoritesKey, JSON.stringify(updatedFavorite));
+      setFavorites(updatedFavorite);
+    }
   };
+
+  const removeFavorite = () => {
+    if (stock) {
+      const updatedFavorites = favorites.filter(
+        (savedFavorite) => savedFavorite['1. symbol'] !== stock['1. symbol']
+      );
+      setFavorites(updatedFavorites);
+      localStorage.setItem(favoritesKey, JSON.stringify(updatedFavorites));
+    }
+  };
+
+  const mutateFavorite = () => {
+    if (isFavorite) {
+      removeFavorite();
+    } else {
+      addFavorite();
+    }
+  };
+
+  const isFavorite = favorites?.some(
+    (favorite) => favorite['1. symbol'] === stock?.['1. symbol']
+  );
 
   return (
     <Stack gap={2} flex={1}>
       <Stack direction='row' justifyContent='space-between' gap={2}>
         <Typography variant='h4'>{stock?.['1. symbol']}</Typography>
         <Button
-          onClick={addFavorite}
-          sx={{ maxWidth: '200px' }}
-          startIcon={<StarOutlineIcon />}
+          onClick={mutateFavorite}
+          sx={{ minWidth: '250px' }}
+          startIcon={isFavorite ? <StarIcon /> : <StarOutlineIcon />}
         >
-          Add to favorite
+          {isFavorite ? 'Remove from favorite' : 'Add to favorite'}
         </Button>
       </Stack>
       <Divider />

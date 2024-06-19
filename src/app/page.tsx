@@ -15,7 +15,9 @@ export default function HomePage() {
         <title>Main page </title>
       </Head>
       <Container maxWidth='sm' sx={{ mt: 2 }}>
-        <Link href='/favorites'>Check your favorite stocks</Link>
+        <Link href='/favorites' className='underline'>
+          Check your favorite stocks
+        </Link>
         <Stack gap={2} mt={2}>
           <Typography variant='h5'>
             Please type the stock symbol or name
